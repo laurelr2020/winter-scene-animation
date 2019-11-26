@@ -1,0 +1,12 @@
+/* Regan Laurell */
+
+body {
+	color: black;
+	background-color: white;
+}
+
+
+canvas {
+	margin: 30px;
+	border: 4px solid gray;
+}
