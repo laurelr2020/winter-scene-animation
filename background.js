@@ -13,8 +13,7 @@ function Background(){
     }
     
     this.drawSun = function drawSun(){
-        let image = document.getElementById("sun.jpg");
-        global.context.drawImage(image, 600, 10);
+        let image = document.getElementById("sun");
+        global.context.drawImage(image, 650, 10);
     }
-
 }
