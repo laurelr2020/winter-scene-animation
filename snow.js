@@ -25,17 +25,38 @@ function SnowCloud(over, down){
 }
 
 function SnowFall(){
-    this.snowflake = new SnowFlake(400, 300);
+    let snowflakeNum = 100;
+
+    this.snowflakes = [];
+    for(let index = 0; index < snowflakeNum; index++){
+        this.snowflakes.push(newSnowflake());
+    }
+
+    this.draw = function draw(){
+        for(let index = 0; index < this.snowflakes.length; index++){
+            global.context.save();
+            this.snowflakes[index].draw();
+            global.context.restore();
+        }
+    }
+
+    function newSnowflake(){
+        let x = Math.floor(Math.random() * 750);
+        let y = Math.floor(Math.random() * 550);
+
+        let snowflake = new SnowFlake(x, y);
+        return snowflake;
+    }
 }
 
 function SnowFlake(startX, startY){
+    //reference: https://www.robertlysik.com/?p=536
     this.x = startX;
     this.y = startY;
 
     this.draw = function draw() {
         global.context.lineWidth = 1;
         global.context.lineCap = 'round';
-        global.context.fillStyle = "#162D50";
         global.context.strokeStyle = "#FFFFFF";
         global.context.translate(this.x, this.y);
         for(var count = 0; count < 6; count++) {
