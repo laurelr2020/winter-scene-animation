@@ -6,6 +6,7 @@ let global;
 function init(){
 	global = new Global();
 	drawBackground();
+	global.drawClouds();
 }
 
 function drawBackground(){
@@ -26,7 +27,6 @@ function moveOver(){
 
 function smallMoveOver(){
 	global.moveCount ++;
-	global.personOne.over += 5;
 	drawAll();
 
 	if(global.moveCount < 20){
