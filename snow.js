@@ -25,7 +25,7 @@ function SnowCloud(over, down){
 }
 
 function SnowFall(){
-    let snowflakeNum = 100;
+    let snowflakeNum = 1000;
 
     this.snowflakes = [];
     for(let index = 0; index < snowflakeNum; index++){
@@ -41,8 +41,10 @@ function SnowFall(){
     }
 
     function newSnowflake(){
-        let x = Math.floor(Math.random() * 750);
-        let y = Math.floor(Math.random() * 550);
+        let maxX = 790; let minX = 10;
+        let maxY = 480; let minY = 10;
+        let x = Math.floor(Math.random() * maxX) + minX;
+        let y = Math.floor(Math.random() * maxY) + minY;
 
         let snowflake = new SnowFlake(x, y);
         return snowflake;
