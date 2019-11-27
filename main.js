@@ -7,6 +7,8 @@ function init(){
 	global = new Global();
 	drawBackground();
 	global.drawClouds();
+
+	global.snowstorm.snowflake.draw();
 }
 
 function drawBackground(){

@@ -7,9 +7,9 @@ function Global () {
     let canvas = document.getElementById('canvas');
     this.context = canvas.getContext('2d');
     
-    let snowCloudLeft = new SnowCloud(35, 80);
+    let snowCloudLeft = new SnowCloud(50, 70);
     let snowCloudMiddle = new SnowCloud(320, 60);
-    let snowCloudRight = new SnowCloud(600, 70);
+    let snowCloudRight = new SnowCloud(575, 70);
 
     let clouds = [snowCloudLeft, snowCloudMiddle, snowCloudRight];
     this.drawClouds = function drawClouds(){
@@ -18,4 +18,7 @@ function Global () {
             clouds[index].draw();
         }
     }
+
+
+    this.snowstorm = new SnowFall();
 }
