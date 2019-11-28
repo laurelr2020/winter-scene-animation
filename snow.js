@@ -33,15 +33,14 @@ function SnowCloud(over, down){
     this.clear = function clear(){
         global.context.clearRect(this.over - 50, this.down - 30, this.over + 260, this.down + 100)
     }
-
 }
 
 function SnowFall(){
-    let snowflakeNum = 1000;
+    let snowflakeNum = 100;
 
     this.snowflakes = [];
     for(let index = 0; index < snowflakeNum; index++){
-        this.snowflakes.push(newSnowflake());
+        this.snowflakes.push(newSnowflake(index));
     }
 
     this.draw = function draw(){
@@ -52,12 +51,26 @@ function SnowFall(){
         }
     }
 
-    function newSnowflake(){
-        let maxX = 790; let minX = 10;
-        let maxY = 480; let minY = 10;
-        let x = Math.floor(Math.random() * maxX) + minX;
-        let y = Math.floor(Math.random() * maxY) + minY;
-
+    function newSnowflake(snowflakeNum){
+        let maxX, minX, maxY, minY, x, y;
+        maxY = 60; minY = 55;
+        switch (snowflakeNum % 3){
+            case 0:
+                maxX = 200; minX = 50;
+                x = Math.floor(Math.random() * maxX) + minX;
+                y = Math.floor(Math.random() * maxY) + minY;
+                break;
+            case 1:
+                maxX = 460; minX = 310;
+                x = Math.floor(Math.random() * maxX) + minX;
+                y = Math.floor(Math.random() * maxY) + minY;
+                break;
+            case 2:
+                maxX = 700; minX = 570;
+                x = Math.floor(Math.random() * maxX) + minX;
+                y = Math.floor(Math.random() * maxY) + minY;
+                break;    
+        }
         let snowflake = new SnowFlake(x, y);
         return snowflake;
     }
