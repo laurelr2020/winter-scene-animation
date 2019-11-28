@@ -9,8 +9,8 @@ function Global () {
     
     this.background = new Background();
 
-    this.snowCloudLeft = new SnowCloud(-100, -100);
-    this.snowCloudMiddle = new SnowCloud(320, 60);
+    this.snowCloudLeft = new SnowCloud(40, 70);
+    this.snowCloudMiddle = new SnowCloud(310, 60);
     this.snowCloudRight = new SnowCloud(575, 70);
 
     let clouds = [this.snowCloudLeft, this.snowCloudMiddle, this.snowCloudRight];

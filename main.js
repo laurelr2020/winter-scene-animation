@@ -12,4 +12,5 @@ function init(){
 function drawBackground(){
 	global.background.drawGrass();
 	global.background.drawStormSky();
+	global.drawClouds();
 }	
