@@ -11,7 +11,7 @@ function Global () {
 
     this.snowCloudLeft = new SnowCloud(40, 70);
     this.snowCloudMiddle = new SnowCloud(310, 60);
-    this.snowCloudRight = new SnowCloud(575, 70);
+    this.snowCloudRight = new SnowCloud(560, 70);
 
     let clouds = [this.snowCloudLeft, this.snowCloudMiddle, this.snowCloudRight];
     this.drawClouds = function drawClouds(){
