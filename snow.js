@@ -33,6 +33,7 @@ function SnowCloud(over, down){
     this.clear = function clear(){
         global.context.clearRect(this.over - 50, this.down - 30, this.over + 260, this.down + 100)
     }
+
 }
 
 function SnowFall(){
