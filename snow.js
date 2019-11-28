@@ -36,7 +36,7 @@ function SnowCloud(over, down){
 }
 
 function SnowFall(){
-    let snowflakeNum = 12;
+    let snowflakeNum = 50;
 
     this.snowflakes = [];
     for(let index = 0; index < snowflakeNum; index++){
@@ -88,26 +88,8 @@ function SnowFlake(startX, startY){
     this.draw = function draw() {
         global.context.lineWidth = 1;
         global.context.lineCap = 'round';
+        global.context.fillStyle = "#FFFFFF"
         global.context.strokeStyle = "#FFFFFF";
-        global.context.translate(this.x, this.y);
-        for(var count = 0; count < 6; count++) {
-            global.context.save();     
-            drawSegment(global.context, 5, 2.5);
-            drawSegment(global.context, 5, 5);
-            drawSegment(global.context, 5, 0);
-            global.context.restore();          
-            global.context.rotate(Math.PI/3);
-        }
-    }
-
-    this.move = function move(snowflake, x, y){
-        this.x += x;
-        this.y += y;
-        global.context.lineWidth = 1;
-        global.context.lineCap = 'round';
-        global.context.strokeStyle = "#FFFFFF";
-        // snowflake.x += x;
-        // snowflake.y += y;
         global.context.translate(this.x, this.y);
         for(var count = 0; count < 6; count++) {
             global.context.save();     
