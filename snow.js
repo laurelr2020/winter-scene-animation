@@ -96,11 +96,13 @@ function SnowFlake(startX, startY){
         }
     }
 
-    this.move = function move(x, y){
+    this.move = function move(snowflake, x, y){
         global.context.lineWidth = 1;
         global.context.lineCap = 'round';
         global.context.strokeStyle = "#FFFFFF";
-        global.context.translate(this.x + x, this.y + y);
+        snowflake.x += x;
+        snowflake.y += y;
+        global.context.translate(this.x, snowflake.y);
         for(var count = 0; count < 6; count++) {
             global.context.save();     
             drawSegment(global.context, 5, 2.5);
