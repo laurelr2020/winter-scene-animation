@@ -29,6 +29,9 @@ function smallMoveOver(){
 
 	if(global.moveCount < 100){
 		if(global.moveCount % 10 == 0){
+			// global.background.drawGrass();
+			// global.background.drawStormSky();
+
 			for(let index = 0; index < global.snowstorm.snowflakes.length; index ++){
 				global.snowstorm.snowflakes[index].move(global.snowstorm.snowflakes[index], 0, 30);
 			}

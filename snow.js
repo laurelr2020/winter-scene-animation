@@ -36,7 +36,7 @@ function SnowCloud(over, down){
 }
 
 function SnowFall(){
-    let snowflakeNum = 1;
+    let snowflakeNum = 12;
 
     this.snowflakes = [];
     for(let index = 0; index < snowflakeNum; index++){
@@ -57,23 +57,27 @@ function SnowFall(){
         switch (snowflakeNum % 3){
             case 0:
                 maxX = 200; minX = 50;
-                x = Math.floor(Math.random() * maxX) + minX;
-                y = Math.floor(Math.random() * maxY) + minY;
+                x = getRandomInteger(minX, maxX);
+                y = getRandomInteger(minY, maxY);
                 break;
             case 1:
                 maxX = 460; minX = 310;
-                x = Math.floor(Math.random() * maxX) + minX;
-                y = Math.floor(Math.random() * maxY) + minY;
+                x = getRandomInteger(minX, maxX);
+                y = getRandomInteger(minY, maxY);
                 break;
             case 2:
                 maxX = 700; minX = 570;
-                x = Math.floor(Math.random() * maxX) + minX;
-                y = Math.floor(Math.random() * maxY) + minY;
+                x = getRandomInteger(minX, maxX);
+                y = getRandomInteger(minY, maxY);
                 break;    
         }
         let snowflake = new SnowFlake(x, y);
         return snowflake;
     }
+}
+
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function SnowFlake(startX, startY){
@@ -97,12 +101,14 @@ function SnowFlake(startX, startY){
     }
 
     this.move = function move(snowflake, x, y){
+        this.x += x;
+        this.y += y;
         global.context.lineWidth = 1;
         global.context.lineCap = 'round';
         global.context.strokeStyle = "#FFFFFF";
-        snowflake.x += x;
-        snowflake.y += y;
-        global.context.translate(this.x, snowflake.y);
+        // snowflake.x += x;
+        // snowflake.y += y;
+        global.context.translate(this.x, this.y);
         for(var count = 0; count < 6; count++) {
             global.context.save();     
             drawSegment(global.context, 5, 2.5);
