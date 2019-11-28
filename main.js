@@ -6,24 +6,34 @@ let global;
 function init(){
 	global = new Global();
 	drawBackground();
-	global.drawClouds();
-
-	global.snowstorm.draw();
+	//global.snowstorm.draw();
 }
 
 function drawBackground(){
-	let background = new Background();
-
-	background.drawGrass();
-	background.drawSky();
-	background.drawSun();
+	global.background.drawGrass();
+	global.background.drawSky();
+	global.background.drawSun();
 }	
 
-function moveOver(){
+function animateScene(){
 	if(global.running == false){
 		global.running = true;
 		global.moveCount = 0;
-		requestAnimationFrame(smallMoveOver);
+		requestAnimationFrame(moveCloudsIn);
+	}
+}
+
+function moveCloudsIn(){
+	global.moveCount ++;
+	global.context.save();
+
+	if(global.moveCount < 120){
+		global.snowCloudLeft.clear();
+		global.snowCloudLeft.move(1.2, 1.2); 
+		// global.snowCloudMiddle.move(32, 6);
+		// global.snowCloudRight.move(-22, 7);
+		global.context.restore();
+		requestAnimationFrame(moveCloudsIn);
 	}
 }
 

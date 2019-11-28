@@ -22,6 +22,17 @@ function SnowCloud(over, down){
         global.context.strokeStyle = '#cccccc';
         global.context.stroke();
     }
+
+    this.move = function move(moveOver, moveDown){
+        this.over += moveOver;
+        this.down += moveDown;
+
+        this.draw();
+    }
+
+    this.clear = function clear(){
+        global.context.clearRect(this.over - 50, this.down - 30, this.over + 260, this.down + 100)
+    }
 }
 
 function SnowFall(){

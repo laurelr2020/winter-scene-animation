@@ -7,18 +7,19 @@ function Global () {
     let canvas = document.getElementById('canvas');
     this.context = canvas.getContext('2d');
     
-    let snowCloudLeft = new SnowCloud(50, 70);
-    let snowCloudMiddle = new SnowCloud(320, 60);
-    let snowCloudRight = new SnowCloud(575, 70);
+    this.background = new Background();
 
-    let clouds = [snowCloudLeft, snowCloudMiddle, snowCloudRight];
+    this.snowCloudLeft = new SnowCloud(-100, -100);
+    this.snowCloudMiddle = new SnowCloud(320, 60);
+    this.snowCloudRight = new SnowCloud(575, 70);
+
+    let clouds = [this.snowCloudLeft, this.snowCloudMiddle, this.snowCloudRight];
     this.drawClouds = function drawClouds(){
         let index = 0;
         for(index = 0; index < clouds.length; index ++){
             clouds[index].draw();
         }
     }
-
 
     this.snowstorm = new SnowFall();
 }
