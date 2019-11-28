@@ -3,12 +3,17 @@
 function Background(){
 
     this.drawGrass = function drawGrass(){
-        global.context.fillStyle = "darkgreen";
+        global.context.fillStyle = "#267347";
         global.context.fillRect(0, 300, 800, 200);
     }
 
-    this.drawSky = function drawSky(){
+    this.drawDaySky = function drawDaySky(){
         global.context.fillStyle = "skyblue";
+        global.context.fillRect(0, 0, 800, 300);
+    }
+
+    this.drawStormSky = function drawStormSky(){
+        global.context.fillStyle = "#1f49c7";
         global.context.fillRect(0, 0, 800, 300);
     }
     

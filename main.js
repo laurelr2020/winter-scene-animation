@@ -2,36 +2,15 @@
 "use strict";
 
 let global;
-	
+
 function init(){
 	global = new Global();
 	drawBackground();
+	global.snowstorm.draw();
+	global.drawClouds();
 }
 
 function drawBackground(){
-	let background = new Background();
-
-	background.drawGrass();
-	background.drawSky();
-	background.drawSun();
+	global.background.drawGrass();
+	global.background.drawStormSky();
 }	
-
-function moveOver(){
-	if(global.running == false){
-		global.running = true;
-		global.moveCount = 0;
-		requestAnimationFrame(smallMoveOver);
-	}
-}
-
-function smallMoveOver(){
-	global.moveCount ++;
-	global.personOne.over += 5;
-	drawAll();
-
-	if(global.moveCount < 20){
-		requestAnimationFrame(smallMoveOver);
-	}else{
-		global.running = false;
-	}
-}
