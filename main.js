@@ -32,7 +32,6 @@ function smallMoveOver(){
 			for(let index = 0; index < global.snowstorm.snowflakes.length; index ++){
 				global.snowstorm.snowflakes[index].move(global.snowstorm.snowflakes[index], 0, 30);
 			}
-	
 			global.context.restore();
 		}
 		requestAnimationFrame(smallMoveOver);
@@ -40,28 +39,3 @@ function smallMoveOver(){
 		global.running = false;
 	}
 }
-
-function moveCloudsIn(){
-	global.moveCount ++;
-	global.context.save();
-
-	if(global.moveCount < 120){
-		global.snowCloudLeft.clear();
-		global.snowCloudLeft.move(1.2, 1.2); 
-		// global.snowCloudMiddle.move(32, 6);
-		// global.snowCloudRight.move(-22, 7);
-		global.context.restore();
-		requestAnimationFrame(moveCloudsIn);
-	}
-}
-
-// function smallMoveOver(){
-// 	global.moveCount ++;
-// 	drawAll();
-
-// 	if(global.moveCount < 20){
-// 		requestAnimationFrame(smallMoveOver);
-// 	}else{
-// 		global.running = false;
-// 	}
-//}
