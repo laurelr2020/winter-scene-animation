@@ -36,18 +36,14 @@ function SnowCloud(over, down){
 }
 
 function SnowFall(){
-    let snowflakeNum = 50;
+    let snowflakeNum = 25;
 
     this.snowflakes = [];
-    for(let index = 0; index < snowflakeNum; index++){
-        this.snowflakes.push(newSnowflake(index));
-    }
+    loadSnowflakes(this.snowflakes);
 
-    this.draw = function draw(){
-        for(let index = 0; index < this.snowflakes.length; index++){
-            global.context.save();
-            this.snowflakes[index].draw();
-            global.context.restore();
+    function loadSnowflakes(snowflakes){
+        for(let index = 0; index < snowflakeNum; index++){
+            snowflakes.push(newSnowflake(index));
         }
     }
 
@@ -73,6 +69,19 @@ function SnowFall(){
         }
         let snowflake = new SnowFlake(x, y);
         return snowflake;
+    }
+
+    this.reset = function reset(snowflakes){
+        snowflakes = [];
+        loadSnowflakes();
+    }
+
+    this.draw = function draw(){
+        for(let index = 0; index < this.snowflakes.length; index++){
+            global.context.save();
+            this.snowflakes[index].draw();
+            global.context.restore();
+        }
     }
 }
 
@@ -121,5 +130,4 @@ function SnowFlake(startX, startY){
         context.stroke();
         context.restore();
     }
-
 }
