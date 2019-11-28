@@ -6,14 +6,14 @@ let global;
 function init(){
 	global = new Global();
 	drawBackground();
-	//global.snowstorm.draw();
+	global.snowstorm.draw();
 }
 
 function drawBackground(){
 	global.background.drawGrass();
 	global.background.drawSky();
 	global.background.drawSun();
-}	
+}
 
 function animateScene(){
 	if(global.running == false){
