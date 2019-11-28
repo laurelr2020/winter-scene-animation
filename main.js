@@ -25,14 +25,17 @@ function animateScene(){
 
 function smallMoveOver(){
 	global.moveCount ++;
-	global.context.save();
+	// global.context.save();
 
 	if(global.moveCount < 100){
-		for(let index = 0; index < global.snowstorm.length; index ++){
-			global.snowstorm[index].y += Math.floor(Math.random() * 5) + 1;
-			global.snowstorm[index].draw();	
+		if(global.moveCount % 10 == 0){
+			let currentX = global.snowstorm.snowflakes[0].x;
+			let currentY = global.snowstorm.snowflakes[0].y;
+			let translateY = currentY + 1;
+			global.snowstorm.snowflakes[0].move(currentX, 1);
+	
+			// global.context.restore();
 		}
-		global.context.restore();
 		requestAnimationFrame(smallMoveOver);
 	}else{
 		global.running = false;
