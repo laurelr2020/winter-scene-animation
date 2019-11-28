@@ -42,28 +42,24 @@ function SnowFall(){
 
     function newSnowflake(snowflakeNum){
         let maxX, minX, maxY, minY, x, y;
-
+        maxY = 60; minY = 55;
         switch (snowflakeNum % 3){
             case 0:
                 maxX = 200; minX = 50;
-                maxY = 300; minY = 40;
                 x = Math.floor(Math.random() * maxX) + minX;
                 y = Math.floor(Math.random() * maxY) + minY;
                 break;
             case 1:
                 maxX = 460; minX = 310;
-                maxY = 300; minY = 40;
                 x = Math.floor(Math.random() * maxX) + minX;
                 y = Math.floor(Math.random() * maxY) + minY;
                 break;
             case 2:
-                    maxX = 710; minX = 560;
-                    maxY = 300; minY = 40;
-                    x = Math.floor(Math.random() * maxX) + minX;
-                    y = Math.floor(Math.random() * maxY) + minY;
-                    break;
-        
-            }
+                maxX = 700; minX = 570;
+                x = Math.floor(Math.random() * maxX) + minX;
+                y = Math.floor(Math.random() * maxY) + minY;
+                break;    
+        }
         let snowflake = new SnowFlake(x, y);
         return snowflake;
     }
