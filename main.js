@@ -7,7 +7,7 @@ function init(){
 	global = new Global();
 	drawBackground();
 	global.snowstorm.draw();
-	global.drawClouds();
+	//global.drawClouds();
 }
 
 function drawBackground(){
@@ -19,7 +19,23 @@ function animateScene(){
 	if(global.running == false){
 		global.running = true;
 		global.moveCount = 0;
-		requestAnimationFrame(moveCloudsIn);
+		requestAnimationFrame(smallMoveOver);
+	}
+}
+
+function smallMoveOver(){
+	global.moveCount ++;
+	global.context.save();
+
+	if(global.moveCount < 100){
+		for(let index = 0; index < global.snowstorm.length; index ++){
+			global.snowstorm[index].y += Math.floor(Math.random() * 5) + 1;
+			global.snowstorm[index].draw();	
+		}
+		global.context.restore();
+		requestAnimationFrame(smallMoveOver);
+	}else{
+		global.running = false;
 	}
 }
 
@@ -37,13 +53,13 @@ function moveCloudsIn(){
 	}
 }
 
-function smallMoveOver(){
-	global.moveCount ++;
-	drawAll();
+// function smallMoveOver(){
+// 	global.moveCount ++;
+// 	drawAll();
 
-	if(global.moveCount < 20){
-		requestAnimationFrame(smallMoveOver);
-	}else{
-		global.running = false;
-	}
-}
+// 	if(global.moveCount < 20){
+// 		requestAnimationFrame(smallMoveOver);
+// 	}else{
+// 		global.running = false;
+// 	}
+//}
