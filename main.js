@@ -12,6 +12,18 @@ function init(){
 	global.snowman.drawBottom();
 	global.snowman.drawMiddle();
 	global.snowman.drawTop();
+
+	global.snowman.drawBottomCoal();
+	global.snowman.drawMiddleCoal();
+	global.snowman.drawTopCoal();
+	global.snowman.drawRightEye();
+	global.snowman.drawLeftEye();
+
+	global.snowman.drawMouthLeft();
+	global.snowman.drawMouthMiddleLeft();
+	global.snowman.drawMouthMiddle();
+	global.snowman.drawMouthMiddleRight();
+	global.snowman.drawMouthRight();
 }
 
 function drawBackground(){
