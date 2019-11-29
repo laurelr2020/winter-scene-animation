@@ -24,6 +24,9 @@ function init(){
 	global.snowman.drawMouthMiddle();
 	global.snowman.drawMouthMiddleRight();
 	global.snowman.drawMouthRight();
+
+	global.snowman.drawLeftArm();
+	global.snowman.drawRightArm();
 }
 
 function drawBackground(){

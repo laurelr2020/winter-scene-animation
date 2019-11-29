@@ -93,7 +93,7 @@ function Snowman(){
         let Ycenter = 293;
         drawOctogon(numberOfSides, size, Xcenter, Ycenter);
     }
-    
+
     this.drawMouthMiddle = function drawMouthMiddle(){
         let numberOfSides = 6;
         let size = 3;
@@ -117,6 +117,18 @@ function Snowman(){
         let Ycenter = 288;
         drawOctogon(numberOfSides, size, Xcenter, Ycenter);
     }
+
+    this.drawRightArm = function drawRightArm(){
+        global.context.translate(95, 50);
+        global.context.rotate(60 * Math.PI / 180);
+        drawRect();
+    }
+
+    this.drawLeftArm = function drawLeftArm(){
+        global.context.translate(345, 290);
+        global.context.rotate(-30 * Math.PI / 180);
+        drawRect();
+    }
 }
 
 function drawOctogon(numberOfSides, size, Xcenter, Ycenter){
@@ -133,4 +145,11 @@ function drawOctogon(numberOfSides, size, Xcenter, Ycenter){
     global.context.lineWidth = 1;
     global.context.fill()
     global.context.stroke();
+}
+
+function drawRect(){
+    global.context.fillStyle = 'darkbrown';
+
+    global.context.rect(0,0, 5, 50);
+    global.context.fill();
 }
