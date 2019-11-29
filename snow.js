@@ -22,21 +22,28 @@ function SnowCloud(over, down){
         global.context.strokeStyle = '#cccccc';
         global.context.stroke();
     }
+
+    this.move = function move(moveOver, moveDown){
+        this.over += moveOver;
+        this.down += moveDown;
+
+        this.draw();
+    }
+
+    this.clear = function clear(){
+        global.context.clearRect(this.over - 50, this.down - 30, this.over + 260, this.down + 100)
+    }
 }
 
 function SnowFall(){
-    let snowflakeNum = 100;
+    let snowflakeNum = 50;
 
     this.snowflakes = [];
-    for(let index = 0; index < snowflakeNum; index++){
-        this.snowflakes.push(newSnowflake(index));
-    }
+    loadSnowflakes(this.snowflakes);
 
-    this.draw = function draw(){
-        for(let index = 0; index < this.snowflakes.length; index++){
-            global.context.save();
-            this.snowflakes[index].draw();
-            global.context.restore();
+    function loadSnowflakes(snowflakes){
+        for(let index = 0; index < snowflakeNum; index++){
+            snowflakes.push(newSnowflake(index));
         }
     }
 
@@ -46,23 +53,40 @@ function SnowFall(){
         switch (snowflakeNum % 3){
             case 0:
                 maxX = 200; minX = 50;
-                x = Math.floor(Math.random() * maxX) + minX;
-                y = Math.floor(Math.random() * maxY) + minY;
+                x = getRandomInteger(minX, maxX);
+                y = getRandomInteger(minY, maxY);
                 break;
             case 1:
                 maxX = 460; minX = 310;
-                x = Math.floor(Math.random() * maxX) + minX;
-                y = Math.floor(Math.random() * maxY) + minY;
+                x = getRandomInteger(minX, maxX);
+                y = getRandomInteger(minY, maxY);
                 break;
             case 2:
                 maxX = 700; minX = 570;
-                x = Math.floor(Math.random() * maxX) + minX;
-                y = Math.floor(Math.random() * maxY) + minY;
+                x = getRandomInteger(minX, maxX);
+                y = getRandomInteger(minY, maxY);
                 break;    
         }
         let snowflake = new SnowFlake(x, y);
         return snowflake;
     }
+
+    this.reset = function reset(snowflakes){
+        snowflakes = [];
+        loadSnowflakes();
+    }
+
+    this.draw = function draw(){
+        for(let index = 0; index < this.snowflakes.length; index++){
+            global.context.save();
+            this.snowflakes[index].draw();
+            global.context.restore();
+        }
+    }
+}
+
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function SnowFlake(startX, startY){
@@ -73,6 +97,7 @@ function SnowFlake(startX, startY){
     this.draw = function draw() {
         global.context.lineWidth = 1;
         global.context.lineCap = 'round';
+        global.context.fillStyle = "#FFFFFF"
         global.context.strokeStyle = "#FFFFFF";
         global.context.translate(this.x, this.y);
         for(var count = 0; count < 6; count++) {
@@ -105,5 +130,4 @@ function SnowFlake(startX, startY){
         context.stroke();
         context.restore();
     }
-
 }
