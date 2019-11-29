@@ -16,7 +16,7 @@ function drawBackground(){
 }
 
 function animateScene(){
-	global.running = false;
+	//global.running = false;
 	if(global.running == false){
 		global.running = true;
 		global.moveCount = 0;
