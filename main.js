@@ -8,6 +8,10 @@ function init(){
 	drawBackground();
 	global.snowstorm.draw();
 	global.drawClouds();
+
+	global.snowman.drawBottom();
+	global.snowman.drawMiddle();
+	global.snowman.drawTop();
 }
 
 function drawBackground(){

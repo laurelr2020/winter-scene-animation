@@ -22,4 +22,6 @@ function Global () {
     }
 
     this.snowstorm = new SnowFall();
+
+    this.snowman = new Snowman();
 }
