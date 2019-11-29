@@ -118,6 +118,16 @@ function Snowman(){
         drawOctogon(numberOfSides, size, Xcenter, Ycenter);
     }
 
+    this.drawNose = function drawNose(){
+        global.context.fillStyle = "#ffa500";
+        global.context.beginPath();
+        global.context.moveTo(400, 280);
+        global.context.lineTo(400, 285);
+        global.context.lineTo(420, 283);
+        global.context.closePath();
+        global.context.fill();
+    }
+
     this.drawRightArm = function drawRightArm(){
         global.context.translate(95, 50);
         global.context.rotate(60 * Math.PI / 180);
@@ -148,7 +158,7 @@ function drawOctogon(numberOfSides, size, Xcenter, Ycenter){
 }
 
 function drawRect(){
-    global.context.fillStyle = 'darkbrown';
+    global.context.fillStyle = '#654321';
 
     global.context.rect(0,0, 5, 50);
     global.context.fill();
