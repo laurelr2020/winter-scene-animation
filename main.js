@@ -28,40 +28,12 @@ function smallMoveOver(){
 	global.moveCount ++;
 	global.context.save();
 
-	if(global.moveCount < 250){
-		if(global.moveCount % 3 == 0){
+	if(global.moveCount < 275){
+		if(global.moveCount % 10 == 0){
 			global.background.drawGrass();
 			global.background.drawStormSky();
 		
-			for(let index = 0; index < global.snowstorm.snowflakes.length; index += 3){
-				global.context.save();
-				global.snowstorm.snowflakes[index].y += getRandomInteger(5, 20);
-				global.snowstorm.snowflakes[index].draw();
-				global.context.restore();
-			}
-			global.context.restore();
-			global.drawClouds();
-
-			requestAnimationFrame(smallMoveOver);
-		}else if(global.moveCount % 3 == 1){
-			global.background.drawGrass();
-			global.background.drawStormSky();
-		
-			for(let index = 1; index < global.snowstorm.snowflakes.length; index += 3){
-				global.context.save();
-				global.snowstorm.snowflakes[index].y += getRandomInteger(5, 20);
-				global.snowstorm.snowflakes[index].draw();
-				global.context.restore();
-			}
-			global.context.restore();
-			global.drawClouds();
-
-			requestAnimationFrame(smallMoveOver);
-		}else if(global.moveCount % 3 == 2){
-			global.background.drawGrass();
-			global.background.drawStormSky();
-		
-			for(let index = 2; index < global.snowstorm.snowflakes.length; index += 3){
+			for(let index = 0; index < global.snowstorm.snowflakes.length; index ++){
 				global.context.save();
 				global.snowstorm.snowflakes[index].y += getRandomInteger(5, 20);
 				global.snowstorm.snowflakes[index].draw();
@@ -81,21 +53,10 @@ function smallMoveOver(){
 	}
 }
 
-// function snowflakeAnimation(){
-// 	global.background.drawGrass();
-// 	global.background.drawStormSky();
-
-// 	for(let index = 0; index < global.snowstorm.snowflakes.length; index ++){
-// 		global.context.save();
-// 		global.snowstorm.snowflakes[index].y += getRandomInteger(5, 20);
-// 		global.snowstorm.snowflakes[index].draw();
-// 		global.context.restore();
-// 	}
-// 	global.context.restore();
-
-// 	global.drawClouds();
-// }
-
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
 }

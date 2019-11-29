@@ -36,7 +36,7 @@ function SnowCloud(over, down){
 }
 
 function SnowFall(){
-    let snowflakeNum = 25;
+    let snowflakeNum = 50;
 
     this.snowflakes = [];
     loadSnowflakes(this.snowflakes);
